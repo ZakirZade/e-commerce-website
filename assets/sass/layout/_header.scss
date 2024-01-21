@@ -1,0 +1,101 @@
+header {
+    background-color: $main-color;
+
+    .top-header {
+        @include flex-center;
+        justify-content: space-between;
+        padding: 30px 0;
+        position: relative;
+        border-bottom: 1px solid #E3E3E3;
+
+        @media screen and (max-width: 1220px) {
+            border-bottom: none;
+        }  
+
+        .mobile-nav-button {
+            display: none;
+
+            @media screen and (max-width: 1220px) {
+                display: block;
+            }            
+        }
+
+        .top-header-btn {
+            cursor: pointer;
+
+            @media screen and (max-width: 1220px) {
+                display: none;
+            }   
+        }
+    
+        .logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+    
+            .logo-link {
+                @include flex-center;
+                gap: 10px;
+
+                h1 {
+                    @include font-style($font-logo, $text-color, 28px, 400, 0);
+                    transition: color 0.2s linear;
+                } 
+                
+                h1:hover {
+                    color: #353535;
+                }
+            }
+        }
+    
+        .self-service {
+            gap: 25px;
+            display: flex;
+    
+            .ss-item {
+                gap: 10px;
+                @include flex-center;
+            
+                h3 {
+                    font-family: $font-nav;
+                    @include font-style($font-nav, $text-color, 14px, 400, 24px);
+
+                    @media screen and (max-width: 1220px) {
+                        display: none;
+                    }   
+                }
+            }
+        }
+    }
+    
+    .navbar {
+        padding: 30px 0;
+    
+        @media screen and (max-width: 1220px) {
+            display: none;
+        }   
+
+        ul {
+            display: flex;
+            justify-content: space-between;
+            
+            li a {
+                @include font-style($font-nav, $text-color, 16px, 400, 24px);
+                transition: text-decoration 0.3s ease-in-out;
+            }
+
+            li a::after {
+                content: '';
+                width: 0px;
+                height: 1px;
+                display: block;
+                background: black;
+                transition: 0.3s;
+            }
+
+            li a:hover::after {
+                width: 100%;
+            }
+        }
+    }
+}

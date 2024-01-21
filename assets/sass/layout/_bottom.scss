@@ -1,0 +1,25 @@
+.bottom {
+    width: 100%;
+    background-color: $footer-color;
+    padding: 15px 0;
+
+    .bottom-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .corp {
+            @include font-style($font-text, $text-color-secondary, 14px, 600, 24px);
+        }
+
+        button {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: transparent;
+            border: 0;
+            cursor: pointer;
+            @include font-style($font-text, $text-color-secondary, 12px, 600, 24px);
+        }
+    }
+}

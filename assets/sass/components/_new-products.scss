@@ -1,0 +1,347 @@
+.new-products {
+    padding: 140px 0;
+
+    @media screen and (max-width: 1220px) {
+        padding: 40px 0 0;
+    } 
+
+    h1 {
+        @include font-style($font-title, $text-color, 45px, 500, normal);
+        text-align: center;
+        margin-bottom: 50px;
+        text-transform: capitalize;
+
+        @media screen and (max-width: 1220px) {
+            font-size: 25px;
+            margin-bottom: 25px;
+        } 
+    }
+
+    .products-filter {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 35px;
+
+        @media screen and (max-width: 1220px) {
+            display: none;
+        } 
+
+        .p-right {
+            display: flex;
+            gap: 40px;
+
+            button {
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+                @include font-style($font-text, $text-color-grey, 16px, 600, normal);
+                text-transform: capitalize;
+                transition: color 0.2s linear;
+            }
+
+            button:focus {
+                color: $text-color;
+            }
+        }
+
+        .filter {
+            @include button;
+            @include font-style($font-text, $text-color-secondary, 16px, 400, normal);
+            text-transform: capitalize;
+        }
+    }
+
+    .products-block {
+        display: grid;
+        grid-template-areas:
+                'item-1 item-2 item-3 item-4'
+                'item-5 item-6 item-7 item-8';
+                
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+        padding-bottom: 20px;
+
+        @media screen and (max-width: 1220px) {
+            grid-template-areas:
+                'item-1 item-2'
+                'item-3 item-4';
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+        } 
+
+        .mobile-none {
+            @media screen and (max-width: 1220px) {
+                display: none;
+            } 
+        }
+
+        .p-object {
+            .p-o-img {
+                position: relative;
+                max-width: 312px;
+                height: 400px;
+
+                @media screen and (max-width: 1220px) {
+                    height: 195px;
+                }
+                
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+                .hot-product {
+                    position: absolute;
+                    background-color: $ribbon-secondary;
+                    padding: 5px 15px;
+                    left: 0;
+                    top: 25px;
+
+                    span {
+                        @include font-style($font-text, $text-color-secondary, 12px, 600, normal);
+                        text-transform: uppercase;
+                    }
+                    
+
+                }
+
+                .sale-product {
+                    position: absolute;
+                    background-color: $ribbon-main;
+                    padding: 5px 15px;
+                    left: 0;
+                    top: 25px;
+
+                    span {
+                        @include font-style($font-text, $text-color-secondary, 12px, 600, normal);
+                        text-transform: uppercase;
+                    }
+                }
+
+                .access-product {
+                    display: flex;
+                    opacity: 0;
+                    justify-content: space-between;
+                    align-items: center;
+                    background-color: $button-color;
+                    padding: 15px;
+                    position: absolute;
+                    width: 100%;
+                    bottom: 0;
+                    transition: opacity 0.1s linear;
+
+                    @media screen and (max-width: 1220px) {
+                        display: none;
+                    }
+                    
+                    .access-left {
+                        display: flex;
+                        align-items: center;
+                        gap: 25px;
+
+                        .access-btn {
+                            border: 0;
+                            background-color: transparent;
+                            cursor: pointer;
+                        }
+
+                        .access-btn svg path {
+                            stroke: white;
+                            transition: stroke 0.2s linear;
+                        }
+
+                        .access-btn svg circle {
+                            stroke: white;
+                            transition: stroke 0.2s linear;
+                        }
+
+                        .access-btn svg:hover path {
+                            stroke: $ribbon-secondary;
+                        }
+
+                        .access-btn svg:hover circle {
+                            stroke: $ribbon-secondary;
+                        } 
+                    }
+
+                    .access-right .access-btn {
+                        border: 0;
+                        background-color: transparent;
+                        cursor: pointer;
+                        display: flex;
+                        gap: 10px;
+                        align-items: center;
+
+                        svg path{
+                            stroke: white;
+                            transition: stroke 0.2s linear;
+                        }
+
+                        span {
+                           @include font-style($font-title, $text-color-secondary, 18px, 400, normal);
+                           text-transform: capitalize; 
+                           transition: color 0.2s linear;
+                        }
+
+                        &:hover svg path,
+                        &:hover span {
+                            stroke: $ribbon-secondary;
+                            color: $text-color-sale;
+                        }
+                    }
+                }
+
+                .mobile-access {
+                    display: none;
+                    width: 100%;
+                    position: absolute;
+                    background-color: $button-color;
+                    bottom: 0;
+                    justify-content: space-between;
+                    padding: 5px 10px;
+                    align-items: center;
+
+                    @media screen and (max-width: 1220px) {
+                        display: flex;
+                    }
+
+                    span {
+                        @include font-style($font-text, $text-color-secondary, 15px, 600, normal);
+                    }    
+                }
+
+                &:hover .access-product {
+                    opacity: 1;
+                }
+
+                .arrow-left {
+                    position: absolute;
+                    top: 50%;
+                    left: 15px;
+                    border: 0;
+                    padding: 5px;
+                    border-radius: 5px;
+                    background-color: transparent;
+                    transition: background-color 0.1s linear;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: $button-color-white;
+                    }
+
+                    @media screen and (max-width: 1220px) {
+                        display: none;
+                    } 
+                }
+
+                .arrow-right {
+                    position: absolute;
+                    top: 50%;
+                    right: 15px;
+                    border: 0;
+                    padding: 5px;
+                    border-radius: 5px;
+                    background-color: transparent;
+                    transition: background-color 0.1s linear;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: $button-color-white;
+                    }
+
+                    @media screen and (max-width: 1220px) {
+                        display: none;
+                    } 
+                }
+            }
+
+            .product-name {
+                padding: 20px 10px 0px 10px;
+                @include flex-column(15px);
+
+                @media screen and (max-width: 1220px) {
+                    padding-top: 5px;
+                }
+
+                h3 {
+                    @include font-style($font-text, $text-color, 16px, 600, normal);
+                    text-transform: capitalize;
+
+                    @media screen and (max-width: 1220px) {
+                        text-align: center;
+                        font-size: 14px;
+                    }
+                }
+
+                .price {
+                    display: flex;
+                    justify-content: space-between;
+
+                    @media screen and (max-width: 1220px) {
+                        display: none;
+                    }
+
+                    p {
+                        @include font-style($font-text, $text-color-grey, 16px, 400, normal);
+                        text-transform: capitalize;
+                    }
+
+                    span {
+                        @include font-style($font-text, $text-color, 16px, 600, normal);
+                    }
+
+                    .price-sale {
+                        display: flex;
+                        align-items: flex-end;
+                        gap: 15px;
+
+                        .price-old {
+                            color: $text-color-grey;
+                            text-decoration:line-through;
+                            font-size: 14px;
+                        }
+
+                        .price-red {
+                            color: $text-color-sale;
+                        }
+                    }
+                }
+            }
+        }
+
+        .item-4 .p-o-img .mobile-access,
+        .item-6 .p-o-img .mobile-access {
+            background-color: $ribbon-secondary;
+        }
+    }
+    
+    .product-all-btn {
+        display: none;
+        padding: 15px 0;
+        gap: 10px;
+        width: 100%;
+        border: 0;
+        background-color: $main-color;
+        transition: background-color 0.2s linear;
+        cursor: pointer;
+
+        @media screen and (max-width: 1220px) {
+            @include flex-center;
+        } 
+
+        &:hover {
+            background-color: bisque;
+        }
+
+        span {
+            @include font-style($font-text, $text-color, 15px, 600, normal)
+        }
+    }
+}
+
+.best-sellers {
+    @media screen and (max-width: 1220px) {
+        padding-bottom: 20px;
+    } 
+}

@@ -1,0 +1,42 @@
+// Fonts
+
+@mixin font-style($font-family, $font-color, $f-size, $f-weight, $f-height) {
+    font-family: $font-family;
+    color: $font-color;
+    font-size: $f-size;
+    font-weight: $f-weight;
+    line-height: $f-height;
+}
+
+
+
+
+// Flex
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-column($flex-gap) {
+    display: flex;
+    flex-direction: column;
+    gap: $flex-gap;
+}
+
+// Button
+@mixin button {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    background-color: $button-color;
+    padding: 10px 25px;
+    border: none;
+    transition: background-color 0.2s linear;
+    cursor: pointer;
+    width: fit-content;
+
+    &:hover {
+        background-color: $button-color-secondary;
+    }
+}

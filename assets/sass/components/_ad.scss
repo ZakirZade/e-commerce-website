@@ -1,0 +1,46 @@
+.ad {
+    width: 100%;
+    height: 40vw;
+    background-image: url("../../assets/images/ad-final.jpg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: 1220px) {
+        display: none;
+    } 
+
+    .container .ad-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 1320px;
+        
+        .ad-block-main {
+            display: flex;
+            gap: 55px;
+            flex-direction: column;
+
+            p {
+                max-width: 505px;
+                @include font-style ($font-title, $text-color-secondary, 26px, 400 ,normal);
+            }
+
+            .ad-btn {
+                @include button;
+                @include font-style($font-title, $text-color, 29px, 400, 55px);
+                background-color: $button-color-white;
+
+
+                &:hover {
+                    background-color: $ribbon-secondary;
+                }
+            }
+
+            img {
+                width: 190px;
+            }
+        }
+    }
+}

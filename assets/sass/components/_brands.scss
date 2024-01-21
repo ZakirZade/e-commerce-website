@@ -1,0 +1,36 @@
+.brands {
+    padding: 90px 0;
+
+    @media screen and (max-width: 1220px) {
+        padding: 60px 0;
+    }  
+
+    .brands-content {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        justify-content: space-between;
+
+        @media screen and (max-width: 1220px) {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }    
+        
+        .brand-img {
+            width: 100%;
+            @include flex-center;
+
+            img {
+                max-width: 100%;
+            }
+        }
+
+        .b-img-none {
+            @media screen and (max-width: 1220px) {
+                display: none;
+            } 
+        }
+    }
+}

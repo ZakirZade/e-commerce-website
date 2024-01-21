@@ -1,0 +1,108 @@
+.post {
+    position: relative;
+    padding: 60px 0;
+    background-color: $main-color;
+
+    @media screen and (max-width: 1220px) {
+        padding: 40px 0 0;
+        background-color: $secondary-color;
+    }
+
+    .post-content {
+        display: grid;
+        gap: 100px;
+        align-items: center;
+        grid-template-columns: 690px 1fr;
+
+        @media screen and (max-width: 1220px) {
+            grid-template-columns: 1fr;
+
+            gap: 40px;
+        }
+
+        .post-text {
+            @media screen and (max-width: 1220px) {
+                grid-row: 2; 
+            }
+
+            .b-text {
+                @include flex-column(50px);
+
+                @media screen and (max-width: 1220px) {
+                    @include flex-center; 
+                    gap: 10px;
+                }
+
+                h1 {
+                    @include font-style($font-title, $text-color, 74px, 300, 55px);
+
+                    @media screen and (max-width: 1220px) {
+                        font-size: 30px;
+                        line-height: 29px;
+                    }
+                }
+        
+                p {
+                    @include font-style($font-title, $text-color, 30px, 400, 55px);
+                    text-transform: capitalize;
+                    
+                    @media screen and (max-width: 1220px) {
+                        text-align: center;
+                        font-size: 17px;
+                        line-height: 29px;
+                    }
+                }
+        
+                button {
+                    @include button;
+                    @include font-style($font-title, $text-color-secondary, 29px, 400, 55px);
+
+                    @media screen and (max-width: 1220px) {
+                        font-size: 15px;
+                        line-height: 0;
+                        padding: 10px 15px;
+                    }
+
+                    svg {
+                        @media screen and (max-width: 1220px) {
+                            width: 20px;
+                        }
+                    }
+                }
+            }    
+        }
+
+        .post-image {
+            @media screen and (max-width: 1220px) {
+                width: 100%;
+                @include flex-center;
+
+                img { 
+                    max-width: 70%;
+                }
+            }
+        }
+    }
+
+    .svg-1 {
+        position: absolute;
+        left: 0;
+        bottom: 100px;
+        z-index: 1;
+
+        @media screen and (max-width: 1220px) {
+            display: none;
+        }   
+    }
+
+    .svg-2 {
+        position: absolute;
+        right: 0;
+        bottom: 150px;
+        z-index: 1;
+
+        @media screen and (max-width: 1220px) {
+            display: none;
+        }  
+    }
+}
